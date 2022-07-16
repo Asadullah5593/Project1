@@ -20,9 +20,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type:String,
         required: true
-    },
-    Cpassword: {
-        type:String,
-        required: true
-    },
+    }
 });
+
+
+const User = mongoose.model("USER",userSchema)
+
+module.exports = User;
