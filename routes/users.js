@@ -1,4 +1,5 @@
 var express = require('express');
+const jwt = require("jsonwebtoken");
 var router = express.Router();
 const md5 = require("md5");
 const User = require('../models/userSchema');
@@ -44,6 +45,14 @@ router.post("/signin", async (req, res) => {
           const user = await User.findOne({email: email});
           const oldPassword = user?.password;
           const signInPassword = md5(password);
+
+          const token = await user.generateAuthToken();
+          console.log(token);
+
+          res.cookie("jwtoken", token, {
+            expires: new Date(Date.now() + 25892000000),
+            httpOnly:true
+          });
 
           if(user && (oldPassword === signInPassword)){
               return res.status(200).json({message: "Successfully logged in!"})
