@@ -2,7 +2,6 @@ import React from 'react'
 const login = () => {
   return (
       <>
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
         <div class="loginbox bg-white">
             <div class="loginbox-title">LOG IN</div>
