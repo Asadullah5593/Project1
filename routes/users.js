@@ -1,71 +1,12 @@
 var express = require('express');
-const jwt = require("jsonwebtoken");
+var jwt = require("jsonwebtoken");
 var router = express.Router();
-const md5 = require("md5");
-const User = require('../models/userSchema');
+var md5 = require("md5");
+var User = require('../models/userSchema');
+var UserController = require("../controllers/users");
 
-/**
- * Signup API Route
- */
 
-router.post("/signup", async (req, res) => {
-
-    try {
-        const userData = req.body;
-
-        const newUser = new User({
-            name: userData.name,
-            email: userData.email,
-            phone: userData.phone,
-            password: md5(userData.password),
-            work: userData.work
-        });
-        await newUser.save();
-        res.json({status: 200, message: "User successfully registered"});
-    } catch (error) {
-        throw new Error("Unable to register user", error);
-    }
-})
-
-/**
- * Login API Route
- */
-
-router.post("/login", async (req, res) => {
-
-        const {email, password} = req.body;
-
-        if (!email) {
-            return res.status(400).json({error: "Email cannot be empty"})
-        }
-
-        if (!password) {
-            return res.status(400).json({error: "Password cannot be empty"})
-        }
-
-        try {
-            const user = await User.findOne({email: email});
-            const oldPassword = user?.password;
-            const signInPassword = md5(password);
-
-            const token = await user.generateAuthToken();
-            console.log(token);
-
-            res.cookie("jwtoken", token, {
-                expires: new Date(Date.now() + 25892000000),
-                httpOnly: true
-            });
-
-            if (user && (oldPassword === signInPassword)) {
-                return res.status(200).json({message: "Successfully logged in!"})
-            } else {
-                return res.status(400).json({error: "Invalid username OR password"});
-            }
-
-        } catch (error) {
-            return res.status(400).json({error: "Error validating user credentials"});
-        }
-    }
-);
+router.post("/signup", UserController.signup)
+router.post("/login", UserController.login);
 
 module.exports = router;
