@@ -7,44 +7,44 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     email: {
-        type:String,
+        type: String,
         required: true
     },
     phone: {
-        type:Number,
+        type: Number,
         required: true
     },
     work: {
-        type:String,
+        type: String,
         required: true
     },
     password: {
-        type:String,
+        type: String,
         required: true
     },
     tokens: [
         {
-        token:{
-            type:String,
-            required: true
+            token: {
+                type: String,
+                required: true
+            }
         }
-    }
-]
+    ]
 });
 
 
-userSchema.methods.generateAuthToken = async function(){
-    try{
-        let token = jwt.sign({_id:this._id}, process.env.SECRET_KEY)
-        this.tokens = this.tokens.concat({token:token})
+userSchema.methods.generateAuthToken = async function () {
+    try {
+        let token = jwt.sign({_id: this._id}, process.env.JWT_SECRET)
+        this.tokens = this.tokens.concat({token: token})
         await this.save();
         return token;
 
-    } catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
 
-const User = mongoose.model("USER",userSchema)
+const User = mongoose.model("USER", userSchema)
 
 module.exports = User;
