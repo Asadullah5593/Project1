@@ -1,4 +1,3 @@
-var express = require("express");
 const Product = require("../models/productSchema");
 
 async function createProduct(req, res) {
@@ -24,9 +23,10 @@ async function createProduct(req, res) {
 
 async function getAllProducts(req, res) {
     try {
-        const products = await product.findAll();
+        const products = await Product.find();
         return res.status(200).json({products: products});
     } catch (error) {
+        console.log(error)
         throw new Error("Unable to fetch all products", error);
     }
 }
