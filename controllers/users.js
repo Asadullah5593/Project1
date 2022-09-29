@@ -24,7 +24,7 @@ async function login(req, res) {
         const user = await userModel.findOne({email: email});
 
         if (!user) {
-            return res.status(404).json({error: "User not found!"})
+            return res.status(404).json({error: "Invalid username OR password"})
         }
 
         const oldPassword = user?.password;

@@ -1,6 +1,10 @@
-import React, { Component } from 'react'
-export default class SignUp extends Component {
-  render() {
+import React, {Component, useState} from 'react'
+
+const SignUp = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
       <>
         <div className='res-main-form'>
@@ -55,5 +59,5 @@ export default class SignUp extends Component {
       </div>
    </>
     )
-  }
 }
+export default SignUp;
