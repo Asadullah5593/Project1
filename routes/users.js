@@ -5,7 +5,6 @@ var md5 = require("md5");
 var User = require('../models/userSchema');
 var UserController = require("../controllers/users");
 
-
 router.post("/signup", UserController.signup)
 router.post("/login", UserController.login);
 

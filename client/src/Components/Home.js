@@ -1,79 +1,437 @@
 import React from 'react'
-import about_pic from '../images/homeabout.jpg'
-import contact_pic from '../images/homecontact.webp'
-import login_pic from '../images/homelogin.png'
+import Carousel from 'react-bootstrap/Carousel'
 import homepic1 from '../images/homepic1.webp'
 import homepic2 from '../images/homepic2.jpg'
+import image1 from '../images/Image1.webp'
+import slide1 from '../images/slide1.webp'
+import slide2 from '../images/slide2.webp'
+import product1pic from "../images/product1.png";
 const Home = () => {
   return (
-  <div>
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <div><Carousel fade>
+    <Carousel.Item>
+      <img
+          className="d-block w-100"
+          src={image1}
+          alt="First slide"
+      />
+    </Carousel.Item>
+    <Carousel.Item>
+      <img
+          src={slide1}
+          alt="Second slide"
+      />
+    </Carousel.Item>
 
-  <div class="container marketing">
+    <Carousel.Item>
+      <img
+          className="d-block w-100"
+          src={slide2}
+          alt="Third slide"
+      />
+      </Carousel.Item>
+  </Carousel>
 
-    <div class="row">
-      <div class="col-lg-4">
-      <img src={about_pic} class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"></img>
 
-        <h2>About Us</h2>
-        <p>Know about us by clicking here and dicover more fantastic facts!!</p>
-        <p><a class="btn btn-secondary" href="/about">About &raquo;</a></p>
+
+
+  <div className="container marketing">
+
+
+    <hr className="featurette-divider"/>
+
+    <div className="row featurette">
+      <div className="col-md-7">
+        <h2 className="featurette-heading">Purchase Mobile Phone. <span className="text-muted">According to your needs.</span></h2>
+        <p className="lead">We sell mobile phone with mind blowing features and price.</p>
       </div>
-      <div class="col-lg-4">
-        <img src={contact_pic} class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"></img>
-
-        <h2>Contact Us</h2>
-        <p>For more information and queries, contact us by clicking here!!</p>
-        <p><a class="btn btn-secondary" href="/Contact">Contact &raquo;</a></p>
-      </div>
-      <div class="col-lg-4">
-      <img src={login_pic} class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"></img>
-
-
-        <h2>Log In</h2>
-        <p>To see the latest products and get updated about every little detail, log in today!!</p>
-        <p><a class="btn btn-secondary" href="/Login">Login &raquo;</a></p>
-      </div>
-    </div>
-
-
-    <hr class="featurette-divider"/>
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">Purchase Mobile Phone. <span class="text-muted">According to your needs.</span></h2>
-        <p class="lead">We sell mobile phone with mind blowing features and price.</p>
-      </div>
-      <div class="col-md-5">
-      <img src={homepic1} class="bd-placeholder-img" role="img"></img>
-      </div>
-    </div>
-
-    <hr class="featurette-divider"/>
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Sell your Mobile Phone. <span class="text-muted">On a very reasonable price. </span></h2>
-        <p class="lead">We will be please to buy your old mobile phones at very good prices.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-      <img src={homepic2} class="bd-placeholder-img" role="img"></img>
+      <div className="col-md-5">
+      <img src={homepic1} className="bd-placeholder-img" role="img" alt="homepic1"></img>
       </div>
     </div>
 
-    <hr class="featurette-divider"/>  
+    <hr className="featurette-divider"/>
+
+    <div className="row featurette">
+      <div className="col-md-7 order-md-2">
+        <h2 className="featurette-heading">Sell your Mobile Phone. <span className="text-muted">On a very reasonable price. </span></h2>
+        <p className="lead">We will be please to buy your old mobile phones at very good prices.</p>
+      </div>
+      <div className="col-md-5 order-md-1">
+      <img src={homepic2} className="bd-placeholder-img" role="img" alt="homepic2"></img>
+      </div>
+    </div>
+
+    <hr className="featurette-divider"/>
   </div>
 
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2022–2026 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-<main/>
 
+    <h1 className="prod-heading">PRODUCTS</h1>
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
     </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="col-md-3 mt-2">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-img-actions">
+            <img src={product1pic} className="card-img img-fluid" width="96" height="35" alt="product1"/>
+          </div>
+        </div>
+        <div className="card-body bg-light text-center">
+          <div className="mb-2">
+            <h6 className="font-weight-semibold mb-2">
+              <h4>VIVO</h4>
+              <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+            </h6>
+          </div>
+          <h3 className="mb-0 font-weight-semibold">$25.89</h3>
+
+
+          <a className="prod-detail-btn" href="/product-details">More Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="home-prod-div"><a className="home-prod-btn btn btn-danger" href="/Products"><h3 className="prod-btn-h3">Show All Products!</h3></a></div>
+
+
+    <footer className="container">
+      <p className="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2022–2026 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+  </div>
+
   )
 }
 

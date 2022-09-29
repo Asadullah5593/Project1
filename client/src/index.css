@@ -13,7 +13,7 @@ code {
 }
 .navbar-light {
   background-color: crimson;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 0 14px 80px rgba(34, 35, 58, 0.2);
 }
 .auth-wrapper {
   display: flex;
@@ -25,7 +25,7 @@ code {
   width: 450px;
   margin: auto;
   background: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 0 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
@@ -48,7 +48,6 @@ code {
   text-align: right;
   font-size: 16px;
   padding-top: 10px;
-  color: #7f7d7d;
   margin: 0;
   color: red;
 }
@@ -89,11 +88,10 @@ code {
       color: #232434;
       font-size: 16px;
       height: 60px;
-      padding: 10px;
       margin: 10px;
       width: 100%;
       font-family: 'poppins', sans-serif;
-      padding-left: 30px;
+      padding: 10px 10px 10px 30px;
   }
   
   .contact textarea {
@@ -104,11 +102,10 @@ code {
       box-shadow: none;
       color: #232434;
       font-size: 16px;
-      padding: 10px;
       margin: 10px;
       width: 100%;
       font-family: 'poppins', sans-serif;
-      padding-left: 30px;
+      padding: 10px 10px 10px 30px;
   }
   
   .contact input:focus {
@@ -119,13 +116,6 @@ code {
       box-shadow: none;
       outline: 0 none;
   }
-  .contact input:hover{
-    background-color: aqua;
-  }
-  .contact textarea:hover{
-    background-color: aqua;
-  }
-  
   .contact textarea:focus {
       background: lightgoldenrodyellow;
       border: 1px solid #fff;
@@ -140,7 +130,6 @@ code {
   
   .btn {
     width: 100%;
-    margin-top: 20px;
     margin: 10px;
     padding: 15px;
     font-size: 20px;
@@ -157,7 +146,7 @@ code {
   
   @media only screen and (max-width:768px) {
       .single_address {
-          padding-left: 0px;
+          padding-left: 0;
       }
   }
   
@@ -187,7 +176,7 @@ code {
   
   .single_address h4 {
       font-size: 18px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
       overflow: hidden;
       font-weight: 600;
   }
@@ -272,7 +261,6 @@ code {
     text-align: center;
     margin: 96px;
     padding-left: 300px;
-    /* max-width: 340px; */
 }
 
 .login-container .loginbox {
@@ -295,7 +283,7 @@ code {
     width: 100%;
     height: 35px;
     padding-top: 10px;
-    font-family: 'Lucida Sans','trebuchet MS',Arial,Helvetica;
+    font-family: 'Lucida Sans', 'trebuchet MS', Arial, Helvetica, serif;
     font-size: 20px;
     font-weight: normal;
     color: #444;
@@ -315,8 +303,7 @@ code {
 
 .login-container .loginbox .loginbox-social .social-buttons {
     height: 80px;
-    padding: 15px;
-    padding-left: 184px;
+    padding: 15px 15px 15px 184px;
     text-align: center;
 }
 
@@ -353,21 +340,6 @@ code {
     background-color: #fff;
 }
 
-.login-container .loginbox .loginbox-social .social-buttons .button-facebook i {
-    font-size: 26px;
-    line-height: 50px;
-}
-
-.login-container .loginbox .loginbox-social .social-buttons .button-twitter i {
-    font-size: 26px;
-    line-height: 50px;
-}
-
-.login-container .loginbox .loginbox-social .social-buttons .button-google i {
-    font-size: 26px;
-    line-height: 50px;
-}
-
 .login-container .loginbox .loginbox-or {
     position: relative;
     text-align: center;
@@ -386,7 +358,6 @@ code {
 .login-container .loginbox .loginbox-or .or {
     position: absolute;
     top: 0;
-    -lh-property: 0;
     left: -webkit-calc(50% - 25px);
     left: -moz-calc(50% - 25px);
     left: calc(50% - 25px);
@@ -456,30 +427,28 @@ code {
   margin-left: 50px;
   padding-left: 30%;
 }
-.label{
-  /* text-align: left !important; */
-  margin: 10px;
+.res-label{
+    font-style: italic;
+    font-weight: lighter;
+    font-size: large;
+
 }
 .res-input{
-  border: none;
-  background-color: #EEEEEE;
+    margin: 10px 0;
+  border: none !important;
+  background-color: #EEEEEE !important;
   border-radius: 5px;
   height: 37px;
 }
 .res-btn{
-  size: 2rem;
-  margin: 25px;
-  border-radius: 7px;
-  background-color: #3b5998;
-  color: whitesmoke;
-  padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border: none;
-  margin-left: 38%;
-}
-.shop-icon-margin{
-  margin-left: 750px;
+    size: 40px;
+    font-size: larger;
+    border-radius: 5px;
+    background-color: seagreen;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    margin: 25px 25px 25px 38%;
 }
 
 
@@ -850,19 +819,19 @@ a{
 
 .login-container-submit {
   /* border: 1px solid #3079ed; */
-  border: 0px;
+  border: 0;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
   background-color: #357ebd;/*#4d90fe;*/
-  padding: 17px 0px;
-  font-family: roboto;
+  padding: 17px 0;
+    font-family: roboto, serif;
   font-size: 14px;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
 .login-container-submit:hover {
   /* border: 1px solid #2f5bb7; */
-  border: 0px;
+  border: 0;
   text-shadow: 0 1px rgba(0,0,0,0.3);
   background-color: #357ae8;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
@@ -881,7 +850,6 @@ ol, ul {
   list-style: none;
 }
 .hand {
-  cursor: pointer;
   cursor: pointer;
 }
 .cards{
@@ -979,11 +947,6 @@ ol, ul {
 .panel-info > .panel-heading {
     background-image: linear-gradient(to bottom, #555 0px, #888 100%);
 }
-
-hr {
-    border-color: #999 -moz-use-text-color -moz-use-text-color;
-}
-
 .panel-footer {
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
@@ -995,6 +958,7 @@ hr {
 }
 
 hr{
+    border-color: #999;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -1037,6 +1001,61 @@ hr{
         width:100%;
     }
     
+}
+.navbar-brand{
+    padding: 4px 15px !important;
+}
+
+.carousel-indicators{
+    display: none !important;
+}
+.prod-detail-btn{
+border: 1px solid black;
+    padding: 4px;
+    margin: 5px;
+    border-radius:5px;
+    background-color: lightgoldenrodyellow;
+}
+.prod-heading{
+    text-align: center;
+    margin-bottom: 10px;
+    color: darkgrey;
+}
+.home-prod-btn{
+    width: 15%;
+    color: lavender;
+}
+.home-prod-div{
+    text-align: center;
+}
+.prod-btn-h3{
+    margin-top: 12px!important;
+    margin-bottom: 9px!important;
+}
+.prod-price{
+    font-weight: bolder;
+}
+#prod-detail{
+    text-align: center;
+}
+.nav-checkout{
+    height: 53px;
+    width: 36px;
+}
+.nav-ul-signin{
+    display: inline-block;
+}
+#nav-li-signin{
+    width: 50%;
+    display: inline-block;
+}
+#nav-li-signup{
+    width: 50%;
+    display: inline-block;
+    padding-left:15px;
+}
+.cart-item-font{
+    font-size: larger;
 }
 /*
 @media only screen and (max-width: 777px){

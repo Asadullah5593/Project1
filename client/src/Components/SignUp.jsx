@@ -3,52 +3,52 @@ export default class SignUp extends Component {
   render() {
     return (
       <>
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
         <div className='res-main-form'>
-        <div class="col-md-6 pt-5 pt-sm-3">
-            <h2 class="h4 mb-3">No Account? Sign up</h2>
-            <p class="text-muted mb-4">Registration takes less than a minute but gives you full control over your orders.</p>
+        <div className="col-md-6 pt-5 pt-sm-3">
+            <h1>No Account? Sign up</h1>
+            <p className="text-muted mb-4">Registration takes less than a minute but gives you full control over your orders.</p>
+            <hr/>
             <form>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-fn">First Name</label>
-                            <input class="res-input" type="text" required = "required" id="reg-fn" />
+                <div className="row">
+                    <div className="col-sm-6">
+                        <div>
+                            <label className="res-label">First Name</label>
+                            <input className="res-input" type="text" required />
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-ln">Last Name</label>
-                            <input class="res-input" type="text" required id="reg-ln" />
+                    <div className="col-sm-6">
+                        <div>
+                            <label className="res-label">Last Name</label>
+                            <input className="res-input" type="text" required />
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-email">E-mail Address</label>
-                            <input class="res-input" type="email" required id="reg-email" />
+                    <div className="col-sm-6">
+                        <div>
+                            <label className="res-label">E-mail Address</label>
+                            <input className="res-input" type="email" required />
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-phone">Phone Number</label>
-                            <input class="res-input" type="text" required = "required" />
+                    <div className="col-sm-6">
+                        <div>
+                            <label className="res-label">Phone Number</label>
+                            <input className="res-input" type="text" required />
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-password">Password</label>
-                            <input class="res-input" type="password" id="reg-password" required = "required" />
+                    <div className="col-sm-6">
+                        <div>
+                            <label className='res-label'>Password</label>
+                            <input className="res-input" type="password" required />
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label className='label' for="reg-password-confirm">Confirm Password</label>
-                            <input class="res-input" type="password" id="reg-password-confirm" required = "required" />
+                    <div className="col-sm-6">
+                        <div>
+                            <label className="res-label">Confirm Password</label>
+                            <input className="res-input" type="password" required />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button class="res-btn" type="submit">Sign Up</button>
+                    <button className="res-btn" type="submit">Sign Up</button>
                 </div>
             </form>
         </div>
