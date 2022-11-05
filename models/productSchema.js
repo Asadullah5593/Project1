@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required: false,
     },
-    brandName: {
+    brand_name: {
         type: String,
         required: true,
     },
@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    madeIn: {
+    made_in: {
         type: String,
         required: true,
     },
@@ -22,6 +22,10 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     model: {
+        type: String,
+        reuqired: true,
+    },
+    image_url: {
         type: String,
         reuqired: true,
     },

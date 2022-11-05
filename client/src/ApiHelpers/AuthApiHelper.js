@@ -1,19 +1,11 @@
 import axios from "axios";
 import {API_URL} from "../utils/apiRoute";
+import config from "../utils/constants";
 
+export async function loginUser(data) {
+    return axios.post(`${API_URL}users/login`, data, config);
+}
 
-export async function loginUser(email, password) {
-    let config = {
-        Headers: {
-            'Content-Type': 'application/json',
-        },
-    };
-
-    try {
-        const {data} = await axios.post(`${API_URL}users/login`, {email, password}, config);
-    } catch (e) {
-        alert(e.response.data.error)
-    }
-
-
+export async function signupUser(data) {
+    return axios.post(`${API_URL}users/signup`, data, config);
 }

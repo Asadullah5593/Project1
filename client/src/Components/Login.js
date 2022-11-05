@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import { useNavigate } from "react-router-dom"
-// import {loginUser} from "../ApiHelpers/AuthApiHelper";
-// import {response} from "express";
+import {useNavigate} from "react-router-dom"
+import {loginUser} from "../ApiHelpers/AuthApiHelper";
+import {toast} from "react-toastify";
 
 const Login = () => {
 
@@ -11,9 +11,23 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        navigate('/products')
+
         // dispatch login
-        // loginUser(email, password).then(func)
+        loginUser({
+            email: email,
+            password: password
+        }).then((res) => {
+            const {data} = res;
+            if (data.success === true) {
+                toast.success("Login Successfull!")
+                localStorage.setItem("accessToken", data.accessToken)
+                navigate("/products")
+            } else {
+                toast.error(data.error)
+            }
+        }).catch((e) => {
+            toast.error(e.message);
+        })
     };
 
     return (
@@ -25,7 +39,7 @@ const Login = () => {
                         <div className="or-line"></div>
                     </div>
                     <div className="loginbox-textbox">
-                        <input type="text" className="form-control" placeholder="Email" required="true"
+                        <input type="email" className="form-control" placeholder="Email" required="true"
                                onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="loginbox-textbox">
