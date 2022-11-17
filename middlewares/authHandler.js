@@ -1,5 +1,5 @@
 var jwt = require("jsonwebtoken")
-var User = require("../models/userSchema")
+var User = require("../schemas/userSchema")
 
 async function authHandler(req, res, next) {
     if (

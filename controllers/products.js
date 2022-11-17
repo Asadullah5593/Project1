@@ -1,5 +1,4 @@
-const Product = require("../models/productSchema");
-const {ObjectId} = require("mongodb");
+const Product = require("../schemas/productSchema");
 
 async function createProduct(req, res) {
     try {

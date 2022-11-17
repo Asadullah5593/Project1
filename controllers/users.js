@@ -1,8 +1,6 @@
-var express = require("express");
-var userModel = require("../models/userSchema");
+var User = require("../schemas/userSchema");
 var md5 = require("md5");
 var jwt = require("jsonwebtoken")
-const User = require("../models/userSchema");
 
 /**
  * Login endpoint
@@ -21,7 +19,7 @@ async function login(req, res) {
     }
 
     try {
-        const user = await userModel.findOne({email: email});
+        const user = await User.findOne({email: email});
 
         if (!user) {
             return res.status(200).json({error: "Invalid username OR password"})
