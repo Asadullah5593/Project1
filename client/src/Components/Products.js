@@ -2,6 +2,7 @@ import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import {addToCart} from "../utils/cart";
+import {isUserLoggedIn} from "../utils/buttonHide";
 import {useEffect, useState} from 'react';
 import {getAllProducts} from "../ApiHelpers/ProductApiHelper";
 import {toast} from "react-toastify";
@@ -15,15 +16,14 @@ const Products = () => {
         setFetching(true);
         getAllProducts().then((res) => {
             const {data} = res;
-            if(data.success === true){
+            if (data.success === true) {
                 setProducts(data.products);
                 setFetching(false);
-            }
-            else{
+            } else {
                 toast.error(data.error)
             }
-        }).catch((e) =>{
-                toast.error(e.message)
+        }).catch((e) => {
+            toast.error(e.message)
         })
         ;
     }, []);
@@ -43,8 +43,10 @@ const Products = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="card-img-actions">
-                                            <a href={`product-details/${product._id}`}> <img src={product.image_url} className="card-img img-fluid" width="96" height="35"
-                                                 alt="product1"/></a>
+                                            <a href={`product-details/${product._id}`}> <img src={product.image_url}
+                                                                                             className="card-img img-fluid"
+                                                                                             width="96" height="35"
+                                                                                             alt="product1"/></a>
                                         </div>
                                     </div>
                                     <div className="card-body bg-light text-center">
@@ -63,9 +65,13 @@ const Products = () => {
                                         {/*    <FontAwesomeIcon className="star" icon={faStarHalf}/>*/}
                                         {/*</div>*/}
                                         <div className="text-muted mb-3">30 reviews</div>
-                                        <button type="button" className="bg-cart" onClick={event => addToCart(product._id)}>
-                                            <FontAwesomeIcon icon={faCartPlus} mr-2/> Add to cart
-                                        </button>
+                                        <div><a className="prod-detail-btn" href={`product-details/${product._id}`}>More Details</a></div>
+                                        {isUserLoggedIn() ? (
+                                            <button type="button" className="bg-cart"
+                                                    onClick={event => addToCart(product._id)}>
+                                                <FontAwesomeIcon icon={faCartPlus} mr-2/> Add to cart
+                                            </button>
+                                        ) : ""}
                                     </div>
                                 </div>
 

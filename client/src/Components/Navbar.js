@@ -1,8 +1,8 @@
 import React from 'react'
-import bootstrap from 'bootstrap/dist/css/bootstrap.css'
 import {Link} from 'react-router-dom'
 import nav_logo from '../images/rollsroyce.png'
 import shop_logo from '../images/cart-shopping-solid.svg'
+import {isUserLoggedIn} from "../utils/buttonHide";
 
 
 export const Navbar = () => {
@@ -46,6 +46,7 @@ export const Navbar = () => {
                                  className="nav-checkout"
                                  alt="website logo"/>
                         </Link>
+                        {isUserLoggedIn() ? "" : (
                         <ul className="nav-ul-signin">
                             <li className="nav-item" id="nav-li-signin">
                                 <a href="/login">SignIn</a>
@@ -55,6 +56,7 @@ export const Navbar = () => {
                                <a href="/signup"> SignUp</a>
                             </li>
                         </ul>
+                             )}
                         {/* Number of items in the basket */}
                         {/* <span className="bg-red-500 text-xs w-3 text-center rounded-full absolute top-0 right-0">
               {basket?.length}

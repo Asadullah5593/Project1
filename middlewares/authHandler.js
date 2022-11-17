@@ -12,12 +12,10 @@ async function authHandler(req, res, next) {
             req.user = await User.findById(userId).select('-password');
             next();
         } catch (error) {
-            res.statusCode = 401;
-            throw new Error('Unauthorized');
+            res.sendStatus(401)
         }
     } else {
-        res.statusCode = 401;
-        throw new Error('Unauthorized');
+        res.sendStatus(401)
     }
 }
 
