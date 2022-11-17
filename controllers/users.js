@@ -1,6 +1,7 @@
 var User = require("../schemas/userSchema");
 var md5 = require("md5");
-var jwt = require("jsonwebtoken")
+var jwt = require("jsonwebtoken");
+var schema = require("../middlewares/Validators/loginRequestValidator")
 
 /**
  * Login endpoint
@@ -9,13 +10,12 @@ var jwt = require("jsonwebtoken")
  * @returns {Promise<*>}
  */
 async function login(req, res) {
-
-    var email = req.body.email;
-    var password = req.body.password;
+    var {email, password} = req.body;
+    var {error, value} = await schema.loginRequestValidator.validate(req.body);
 
     //Request Validation..
-    if (!email || !password) {
-        return res.status(400).json({error: "Email OR Password cannot be empty"})
+    if (error) {
+        return res.status(422).json({message: "Invalid Request", error: error.details})
     }
 
     try {
