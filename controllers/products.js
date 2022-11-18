@@ -1,4 +1,4 @@
-const Product = require("../schemas/productSchema");
+const Product = require("../schemas/database-schemas/productSchema");
 
 async function createProduct(req, res) {
     try {

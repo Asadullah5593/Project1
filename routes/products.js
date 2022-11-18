@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var ProductController = require("../controllers/products");
-var handler = require("../middlewares/AuthHandler/authHandler");
+var handler = require("../middlewares/auth-handler/auth-handler");
 
 router.post("/create", handler.authHandler, ProductController.createProduct);
 router.get("/get-all", ProductController.getAllProducts);
