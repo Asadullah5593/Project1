@@ -1,4 +1,18 @@
 var Joi = require('joi');
+var JoiObjectId = require("joi-objectid");
+var joiObjectId = JoiObjectId(Joi);
+
+var orderProductsSchema = Joi.object({
+
+    product_id: joiObjectId().required(),
+
+    quantity: Joi.number()
+        .required(),
+
+    price: Joi.number()
+        .precision(2)
+        .required(),
+});
 
 var requestValidationSchema = {
 
@@ -63,6 +77,13 @@ var requestValidationSchema = {
         image_url: Joi.string()
             .uri()
             .required()
-    })
+    }),
+
+    createOrderRequestSchema: Joi.object({
+
+        user_id: joiObjectId().required(),
+
+        products: Joi.array().items(orderProductsSchema).required(),
+    }),
 }
 module.exports = requestValidationSchema;

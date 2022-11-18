@@ -15,7 +15,7 @@ async function login(req, res) {
     } = req.body;
 
     try {
-        const user = await User.findOne({email: email});
+        var user = await User.findOne({email: email});
 
         if (!user) {
             return res.status(404).json({status: false, error: "Invalid username OR password"})
@@ -26,6 +26,8 @@ async function login(req, res) {
         const jwtToken = await jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'}, null);
 
         if (user && (oldPassword === signInPassword)) {
+            user.token = jwtToken;
+            await user.save();
             return res.status(200).json({
                 status: true,
                 userId: user._id,

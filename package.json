@@ -16,6 +16,7 @@
     "express": "~4.16.1",
     "font-awesome": "^4.7.0",
     "joi": "^17.7.0",
+    "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "mdbootstrap": "^4.20.0",
