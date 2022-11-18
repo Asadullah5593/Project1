@@ -1,53 +1,65 @@
 const Product = require("../schemas/database-schemas/productSchema");
 
 async function createProduct(req, res) {
+    var {
+        product_name,
+        brand_name,
+        color,
+        product_code,
+        made_in,
+        specifications,
+        price,
+        model,
+        image_url
+    } = req.body;
     try {
-        const productData = req.body;
 
         let newProduct = new Product({
-            brand_name: productData.brand_name,
-            color: productData.color,
-            made_in: productData.made_in,
-            price: productData.price,
-            model: productData.model,
-            productId: productData.productId,
+            product_name: product_name,
+            brand_name: brand_name,
+            color: color,
+            product_code: product_code,
+            made_in: made_in,
+            specifications: specifications,
+            price: price,
+            model: model,
+            image_url: image_url
         });
         newProduct = await newProduct.save();
         return res
             .status(200)
-            .json({message: "Product Created Successfully", product: newProduct});
+            .json({status: true, product: newProduct});
     } catch (error) {
-        throw new Error("Unable to create new product!", error);
+        res.status(500).json({status: false, error: error.message});
     }
 }
 
 async function getAllProducts(req, res) {
     try {
         const products = await Product.find();
-        return res.status(200).json({success: true, products: products});
+        return res.status(200).json({status: true, products: products});
     } catch (error) {
-        console.log(error)
-        throw new Error("Unable to fetch all products", error);
+        res.status(500).json({status: false, error: error.message});
     }
 }
 
 async function getProductDetail(req, res) {
     const id = req.params.id;
     try {
-        let productDetail = await Product.findOne({_id: id.toString()});
+        let product = await Product.findOne({_id: id.toString()});
 
-        if (productDetail) {
+        if (product) {
             return res
                 .status(200)
-                .json({success: true, product: productDetail});
+                .json({status: true, product: product});
         } else {
             return res
                 .status(404)
-                .json({success: false, product: null});
+                .json({status: false, product: null});
         }
 
     } catch (error) {
-        throw new Error("Unable to fetch product details!", error);
+        res.status(500).json({status: false, error: error.message});
     }
 }
 
