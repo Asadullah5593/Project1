@@ -10,6 +10,8 @@ const productSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     model: {type: String, required: true},
     image_url: {type: String, required: true},
+    available_quantity: {type: Number, required: true},
+    is_published: {type: Boolean, required: true}
 });
 
 const Product = mongoose.model("Product", productSchema);
