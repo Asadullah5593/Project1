@@ -76,7 +76,13 @@ var requestValidationSchema = {
 
         image_url: Joi.string()
             .uri()
-            .required()
+            .required(),
+
+        available_quantity: Joi.number()
+            .required(),
+
+        is_published: Joi.boolean()
+            .required(),
     }),
 
     createOrderRequestSchema: Joi.object({
