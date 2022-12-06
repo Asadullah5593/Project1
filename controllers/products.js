@@ -10,7 +10,9 @@ async function createProduct(req, res) {
         specifications,
         price,
         model,
-        image_url
+        image_url,
+        available_quantity,
+        is_published
     } = req.body;
     try {
 
@@ -23,7 +25,9 @@ async function createProduct(req, res) {
             specifications: specifications,
             price: price,
             model: model,
-            image_url: image_url
+            image_url: image_url,
+            available_quantity: available_quantity,
+            is_published: is_published
         });
         newProduct = await newProduct.save();
         return res
