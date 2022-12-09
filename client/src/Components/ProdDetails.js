@@ -1,5 +1,4 @@
 import {useParams} from "react-router-dom";
-import product1pic from "../images/product1.png"
 import React, {useEffect, useState} from "react";
 import {getProductDetail} from "../ApiHelpers/ProductApiHelper";
 import {toast} from "react-toastify";
@@ -14,7 +13,7 @@ const ProdDetails = () => {
         setFetching(true);
         getProductDetail(id).then((res) => {
             const {data} = res;
-            if(data.success === true){
+            if(data.status === true){
                 setProduct(data.product);
                 setFetching(false);
             }

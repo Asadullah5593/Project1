@@ -1,21 +1,24 @@
-function addToCart(productId) {
-    var productCount = localStorage.getItem(productId);
-    if (!productCount) {
-        window.localStorage.setItem(productId, 1)
+function addToCart(product) {
+    var storedProduct = JSON.parse(localStorage.getItem(`product-${product.product_id}`));
+    if (!storedProduct) {
+        window.localStorage.setItem(`product-${product.product_id}`, JSON.stringify({...product, "quantity": 1}))
     } else {
-        window.localStorage.setItem(productId, parseInt(productCount) + 1);
+        var updatedProduct = {...storedProduct, "quantity": parseInt(storedProduct.quantity + 1)};
+        window.localStorage.setItem(`product-${product.product_id}`, JSON.stringify(updatedProduct));
     }
 }
 
-function removeProduct(productId) {
-    var productCount = localStorage.getItem(productId);
-    if (productCount) {
+function removeFromCart(product) {
+    var storedProduct = JSON.parse(localStorage.getItem(`product-${product.product_id}`));
+    if (storedProduct) {
+        var productCount = storedProduct.quantity;
         if (parseInt(productCount) === 1) {
-            window.localStorage.removeItem(productId);
+            window.localStorage.removeItem(`product-${product.product_id}`);
         } else {
-            window.localStorage.setItem(productId, parseInt(productCount) - 1);
+            var updatedProduct = {...storedProduct, "quantity": parseInt(storedProduct.quantity - 1)};
+            window.localStorage.setItem(`product-${product.product_id}`, JSON.stringify(updatedProduct));
         }
     }
 }
 
-module.exports = {addToCart, removeProduct}
+module.exports = {addToCart, removeFromCart}

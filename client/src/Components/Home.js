@@ -5,7 +5,6 @@ import homepic2 from '../images/homepic2.jpg'
 import image1 from '../images/Image1.webp'
 import slide1 from '../images/slide1.webp'
 import slide2 from '../images/slide2.webp'
-import product1pic from "../images/product1.png";
 import {getAllProducts} from "../ApiHelpers/ProductApiHelper";
 import {toast} from "react-toastify";
 const Home = () => {
@@ -17,7 +16,7 @@ const Home = () => {
     setFetching(true);
     getAllProducts().then((res) => {
       const {data} = res;
-      if(data.success === true){
+      if(data.status === true){
         setProducts(data.products);
         setFetching(false);
       }
@@ -36,7 +35,8 @@ const Home = () => {
 
 
   return (
-  <div><Carousel fade>
+  <div>
+    <Carousel fade>
     <Carousel.Item>
       <img
           className="d-block w-100"
@@ -81,13 +81,14 @@ const Home = () => {
     <hr className="featurette-divider"/>
 
     <div className="row featurette">
+    <div className="col-md-5 order-md-1">
+      <img src={homepic2} className="bd-placeholder-img" role="img" alt="homepic2"></img>
+      </div>
       <div className="col-md-7 order-md-2">
         <h2 className="featurette-heading">Sell your Mobile Phone. <span className="text-muted">On a very reasonable price. </span></h2>
         <p className="lead">We will be please to buy your old mobile phones at very good prices.</p>
       </div>
-      <div className="col-md-5 order-md-1">
-      <img src={homepic2} className="bd-placeholder-img" role="img" alt="homepic2"></img>
-      </div>
+      
     </div>
 
     <hr className="featurette-divider"/>
@@ -108,7 +109,7 @@ const Home = () => {
                 <div className="mb-2">
                   <h6 className="font-weight-semibold mb-2">
                     <h4>{product.brand_name}</h4>
-                    <a className="text-default mb-2">Vivo A-50 With 4 GB Extended Ram</a>
+                    <a className="text-default mb-2">{product.specifications}</a>
                   </h6>
                 </div>
                 <h3 className="mb-0 font-weight-semibold">${product.price}</h3>
@@ -120,7 +121,7 @@ const Home = () => {
     }
 
 
-    <div className="home-prod-div"><a className="home-prod-btn btn btn-danger" href="/Products"><h3 className="prod-btn-h3">Show All Products!</h3></a></div>
+    <div className="home-prod-div"><a className="home-prod-btn btn btn-danger" href="/products"><h3 className="prod-btn-h3">Show All Products!</h3></a></div>
 
 
     <footer className="container">

@@ -18,9 +18,10 @@ const Login = () => {
             password: password
         }).then((res) => {
             const {data} = res;
-            if (data.success === true) {
+            if (data.status === true) {
                 toast.success("Login Successfull!")
                 localStorage.setItem("accessToken", data.accessToken)
+                localStorage.setItem("userId", data.userId)
                 navigate("/products")
             } else {
                 toast.error(data.error)

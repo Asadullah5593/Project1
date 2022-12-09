@@ -1,5 +1,5 @@
 const config = {
-    Headers: {
+    headers: {
         'Content-Type': 'application/json',
     },
 };

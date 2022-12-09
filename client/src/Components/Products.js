@@ -16,7 +16,7 @@ const Products = () => {
         setFetching(true);
         getAllProducts().then((res) => {
             const {data} = res;
-            if (data.success === true) {
+            if (data.status === true) {
                 setProducts(data.products);
                 setFetching(false);
             } else {
@@ -25,7 +25,6 @@ const Products = () => {
         }).catch((e) => {
             toast.error(e.message)
         })
-        ;
     }, []);
 
     if (isFetching) {
@@ -57,18 +56,13 @@ const Products = () => {
                                         </div>
                                         <h3 className="mb-0 font-weight-semibold">${product.price}</h3>
 
-                                        {/*<div>*/}
-                                        {/*    <FontAwesomeIcon className="star" icon={faStar}/>*/}
-                                        {/*    <FontAwesomeIcon className="star" icon={faStar}/>*/}
-                                        {/*    <FontAwesomeIcon className="star" icon={faStar}/>*/}
-                                        {/*    <FontAwesomeIcon className="star" icon={faStar}/>*/}
-                                        {/*    <FontAwesomeIcon className="star" icon={faStarHalf}/>*/}
-                                        {/*</div>*/}
                                         <div className="text-muted mb-3">30 reviews</div>
                                         <div><a className="prod-detail-btn" href={`product-details/${product._id}`}>More Details</a></div>
                                         {isUserLoggedIn() ? (
                                             <button type="button" className="bg-cart"
-                                                    onClick={event => addToCart(product._id)}>
+                                                    onClick={event => addToCart(
+                                                        {"product_id": product._id, "price": product.price, "product_name": product.product_name, "product_brand": product.brand_name, "product_image": product.image_url}
+                                                        )}>
                                                 <FontAwesomeIcon icon={faCartPlus} mr-2/> Add to cart
                                             </button>
                                         ) : ""}
