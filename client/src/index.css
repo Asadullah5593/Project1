@@ -669,10 +669,11 @@ code {
   text-align: center;
 }
 .card-img{
-  width: 350px;
+  width: 190px;
+    height:auto ;
 }
 .bg-cart:hover { 
-  color:burlywood
+  color:snow;
 }
 
 .bg-buy {
@@ -692,9 +693,11 @@ a{
 .bg-cart{
   border-radius: 5px;
   border: none;
-  padding: 8px;
+  padding: 10px 20px;
   margin: 5px;
-  background-color: #7564e5;
+    margin-top: 10px;
+  background-color: dodgerblue;
+    font-size: 20px;
 }
 .title{
   text-align: center;
@@ -940,7 +943,8 @@ ol, ul {
     border-radius: 1px;
 }
 .panel-info > .panel-heading {
-    color: #eee;
+    color: snow !important;
+    font-size: large;
     border-color: #999;
 }
 .panel-info > .panel-heading {
@@ -1011,14 +1015,15 @@ hr{
 .prod-detail-btn{
 border: 1px solid black;
     padding: 4px;
-    margin: 5px;
-    border-radius:5px;
-    background-color: lightgoldenrodyellow;
+    background-color: aliceblue;
 }
 .prod-heading{
     text-align: center;
     margin-bottom: 10px;
     color: darkgrey;
+}
+.review{
+    margin-bottom: 10px;
 }
 .home-prod-btn{
     width: 15%;

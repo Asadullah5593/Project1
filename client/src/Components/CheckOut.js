@@ -93,7 +93,7 @@ const CheckOut = () => {
                                         <>
                                             <div className="form-group">
                                                 <div className="col-sm-3 col-xs-3">
-                                                    <img src={product.product_image} width="100%" alt="pic1"/>
+                                                    <img src={product.product_image} width="100%" alt="orderpic"/>
                                                 </div>
                                                 <div className="col-sm-6 col-xs-6">
                                                     <div className="col-xs-12">{product.product_name}</div>
@@ -159,53 +159,53 @@ const CheckOut = () => {
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Country:</strong></div>
                                     <div className="col-md-12">
-                                        <input type="text" className="form-control" name="country"/>
+                                        <input type="text" className="form-control" name="country" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-6 col-xs-12">
                                         <strong>First Name:</strong>
-                                        <input type="text" name="first_name" className="form-control"/>
+                                        <input type="text" name="first_name" className="form-control" required/>
                                     </div>
                                     <div className="span1"></div>
                                     <div className="col-md-6 col-xs-12">
                                         <strong>Last Name:</strong>
-                                        <input type="text" name="last_name" className="form-control" value=""/>
+                                        <input type="text" name="last_name" className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Address:</strong></div>
                                     <div className="col-md-12">
-                                        <input type="text" name="address" className="form-control" value=""/>
+                                        <input type="text" name="address" className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>City:</strong></div>
                                     <div className="col-md-12">
-                                        <input type="text" name="city" className="form-control" value=""/>
+                                        <input type="text" name="city" className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>State:</strong></div>
                                     <div className="col-md-12">
-                                        <input type="text" name="state" className="form-control" value=""/>
+                                        <input type="text" name="state" className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Zip / Postal Code:</strong></div>
                                     <div className="col-md-12">
-                                        <input type="text" name="zip_code" className="form-control" value=""/>
+                                        <input type="text" name="zip_code" className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Phone Number:</strong></div>
                                     <div className="col-md-12"><input type="text" name="phone_number"
-                                                                      className="form-control" value=""/></div>
+                                                                      className="form-control" required/></div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Email Address:</strong></div>
                                     <div className="col-md-12"><input type="text" name="email_address"
-                                                                      className="form-control" value=""/></div>
+                                                                      className="form-control" required/></div>
                                 </div>
                             </div>
                         </div>
@@ -229,12 +229,12 @@ const CheckOut = () => {
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Credit Card Number:</strong></div>
                                     <div className="col-md-12"><input type="text" className="form-control"
-                                                                      name="car_number" value=""/></div>
+                                                                      name="car_number" required/></div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12"><strong>Card CVV:</strong></div>
                                     <div className="col-md-12"><input type="text" className="form-control"
-                                                                      name="car_code" value=""/></div>
+                                                                      name="car_code" required/></div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12">

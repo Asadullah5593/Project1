@@ -56,12 +56,14 @@ const Products = () => {
                                         </div>
                                         <h3 className="mb-0 font-weight-semibold">${product.price}</h3>
 
-                                        <div className="text-muted mb-3">30 reviews</div>
+                                        <div className="review text-muted mb-3">30 reviews</div>
                                         <div><a className="prod-detail-btn" href={`product-details/${product._id}`}>More Details</a></div>
                                         {isUserLoggedIn() ? (
                                             <button type="button" className="bg-cart"
                                                     onClick={event => addToCart(
-                                                        {"product_id": product._id, "price": product.price, "product_name": product.product_name, "product_brand": product.brand_name, "product_image": product.image_url}
+                                                        {"product_id": product._id, "price": product.price, "product_name": product.product_name,
+                                                            "product_brand": product.brand_name, "product_image": product.image_url},
+                                                        toast.success("Product added to cart successfully")
                                                         )}>
                                                 <FontAwesomeIcon icon={faCartPlus} mr-2/> Add to cart
                                             </button>
