@@ -12,13 +12,13 @@ import CheckOut from "./Components/CheckOut"
 import ProdDetails from "./Components/ProdDetails";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Footer} from "./Components/Footer";
 
-const App = (props) => {
+const App = () => {
     return (
         <>
             <ToastContainer/>
             <Navbar/>
-
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
@@ -29,6 +29,7 @@ const App = (props) => {
                 <Route path="/checkout" element={<CheckOut/>}/>
                 <Route path="/product-details/:id" element={<ProdDetails/>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }

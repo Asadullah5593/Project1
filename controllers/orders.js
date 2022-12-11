@@ -20,7 +20,7 @@ async function createNewOrder(req, res) {
 
             if (availableProduct && availableProduct.available_quantity > 0) {
                 availableProduct.available_quantity -= product.quantity;
-                await Product.update(availableProduct);
+                await availableProduct.save();
                 availableProducts.push({product_name: availableProduct.product_name, ...product});
             } else {
                 unavailableProducts.push(unavailableProducts);

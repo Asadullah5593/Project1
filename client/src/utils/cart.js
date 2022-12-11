@@ -1,4 +1,4 @@
-function addToCart(product) {
+export const addToCart = (product) => {
     var storedProduct = JSON.parse(localStorage.getItem(`product-${product.product_id}`));
     if (!storedProduct) {
         window.localStorage.setItem(`product-${product.product_id}`, JSON.stringify({...product, "quantity": 1}))
@@ -8,7 +8,7 @@ function addToCart(product) {
     }
 }
 
-function removeFromCart(product) {
+export const removeFromCart = (product) => {
     var storedProduct = JSON.parse(localStorage.getItem(`product-${product.product_id}`));
     if (storedProduct) {
         var productCount = storedProduct.quantity;
@@ -21,4 +21,11 @@ function removeFromCart(product) {
     }
 }
 
-module.exports = {addToCart, removeFromCart}
+export const clearCart = () => {
+    const localStore = Object.keys(localStorage);
+    localStore.forEach((entry) => {
+        if (entry.includes("product")) {
+            localStorage.removeItem(entry)
+        }
+    });
+}

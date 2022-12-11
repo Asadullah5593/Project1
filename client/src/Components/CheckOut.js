@@ -2,7 +2,7 @@ import {React} from "react";
 import {useEffect, useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
-import {addToCart, removeFromCart} from "../utils/cart";
+import {addToCart, removeFromCart, clearCart} from "../utils/cart";
 import {placeNewOrder} from "../ApiHelpers/OrderApiHelper";
 import {toast} from "react-toastify";
 
@@ -41,7 +41,8 @@ const CheckOut = () => {
         setIsUpdated(true);
     };
 
-    const placeOrder = () => {
+    const placeOrder = (e) => {
+        e.preventDefault();
         const user_id = localStorage.getItem("userId");
         const finalProducts = products.map((product) => {
             delete product["product_name"];
@@ -56,12 +57,12 @@ const CheckOut = () => {
         };
 
         placeNewOrder(data).then((res) => {
-            console.log(res);
-            // if (data.status === true) {
-            //     setFetching(false);
-            // } else {
-            //     toast.error(data.error)
-            // }
+            if (res.data.status === true) {
+                clearCart();
+                toast.success("Your order has been placed successfully!")
+            } else {
+                toast.error(data.error);
+            }
         }).catch((e) => {
             toast.error(e.message)
         })
@@ -81,7 +82,7 @@ const CheckOut = () => {
                 </div>
             </div>
             <div className="row cart-body">
-                <form className="form-horizontal" method="post" onSubmit={event => event.preventDefault()}>
+                <form className="form-horizontal" method="post" onSubmit={event => placeOrder(event)}>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                         <div className="panel panel-info">
                             <div className="panel-heading">
@@ -99,12 +100,14 @@ const CheckOut = () => {
                                                     <div className="col-xs-12">{product.product_name}</div>
                                                     <div className="col-xs-12">
                                                         <small>Quantity:
-                                                            <button onClick={event => removeProductFromCart(product)}>
+                                                            <button type="button"
+                                                                    onClick={event => removeProductFromCart(product)}>
                                                                 <FontAwesomeIcon
                                                                     icon={faMinus}/>
                                                             </button>
                                                             <span className="cart-item-font"> {product.quantity} </span>
-                                                            <button onClick={event => addProductToCart(product)}>
+                                                            <button type="button"
+                                                                    onClick={event => addProductToCart(product)}>
                                                                 <FontAwesomeIcon
                                                                     icon={faPlus}/></button>
 
@@ -289,7 +292,7 @@ const CheckOut = () => {
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-6 col-sm-6 col-xs-12">
-                                        <button onClick={event => placeOrder()} type="submit"
+                                        <button type="submit"
                                                 className="btn btn-primary btn-submit-fix">Place Order
                                         </button>
                                     </div>
