@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom'
 import nav_logo from '../images/rollsroyce.png'
 import shop_logo from '../images/cart-shopping-solid.svg'
 import {isUserLoggedIn} from "../utils/buttonHide";
+import {countCart} from "../utils/cart";
 
 export const Navbar = () => {
+
     return (
         <>
             <div className="container-fluid">
@@ -26,6 +28,7 @@ export const Navbar = () => {
                                      className="nav-checkout"
                                      alt="website logo"/>
                             </Link>
+                            <span className='badge' id='lblCartCount'>{countCart()} </span>
                             {isUserLoggedIn() ? "" : (
                                 <ul className="nav navbar-right nav-ul-signin">
                                     <li className="nav-item" id="nav-li-signin">

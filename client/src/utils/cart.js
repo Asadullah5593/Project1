@@ -29,3 +29,14 @@ export const clearCart = () => {
         }
     });
 }
+
+export const removeUserSession = () => {
+   localStorage.removeItem("accessToken");
+   localStorage.removeItem("userId");
+}
+
+export const countCart = (product) => {
+    const local = Object.keys(localStorage)
+    var prods = local.filter(product => product.includes("product"))
+    return prods.length;
+}

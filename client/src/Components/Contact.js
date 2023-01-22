@@ -16,17 +16,17 @@ const contact = () => {
                             <div className="single_address">
                                 <i className="fa fa-map-marker"></i>
                                 <h4>Our Address</h4>
-                                <p>3481 Melrose Place, Beverly Hills</p>
+                                <p>341 Ferozpur Road</p>
                             </div>
                             <div className="single_address">
                                 <i className="fa fa-envelope"></i>
                                 <h4>Send your message</h4>
-                                <p>Info@example.com</p>
+                                <p>asad.ullah55@yahoo.com</p>
                             </div>
                             <div className="single_address">
                                 <i className="fa fa-phone"></i>
                                 <h4>Call us on</h4>
-                                <p>(+1) 517 397 7100</p>
+                                <p>(+92) 900 786 01</p>
                             </div>
                             <div className="single_address">
                                 <i className="fa fa-clock-o"></i>

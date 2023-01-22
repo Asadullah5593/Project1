@@ -1,8 +1,8 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {getProductDetail} from "../ApiHelpers/ProductApiHelper";
 import {toast} from "react-toastify";
-import {addToCart} from "../utils/cart";
+import {addToCart, removeUserSession} from "../utils/cart";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCartPlus} from "@fortawesome/free-solid-svg-icons";
 
@@ -11,22 +11,28 @@ const ProdDetails = () => {
 
     const [product, setProduct] = useState([]);
     const [isFetching, setFetching] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setFetching(true);
         getProductDetail(id).then((res) => {
             const {data} = res;
-            if(data.status === true){
+            if (data.status === true) {
                 setProduct(data.product);
                 setFetching(false);
-            }
-            else{
+            } else {
                 toast.error(data.error)
             }
-        }).catch((e) =>{
-            toast.error(e.message)
+        }).catch((e) => {
+            if (e.response.data === "Unauthorized") {
+                toast.error("Your session has been expired! Please Login to continue.");
+                removeUserSession();
+                navigate("/login");
+            } else {
+                toast.error(e.response.data);
+            }
         })
-        ;
+
     }, []);
 
     if (isFetching) {
@@ -48,8 +54,10 @@ const ProdDetails = () => {
                 <h4>Color: {product.color}</h4>
                 <button type="button" className="bg-cart"
                         onClick={event => addToCart(
-                            {"product_id": product._id, "price": product.price, "product_name": product.product_name,
-                                "product_brand": product.brand_name, "product_image": product.image_url},
+                            {
+                                "product_id": product._id, "price": product.price, "product_name": product.product_name,
+                                "product_brand": product.brand_name, "product_image": product.image_url
+                            },
                             toast.success("Product added to cart successfully")
                         )}>
                     <FontAwesomeIcon icon={faCartPlus} mr-2/> Add to cart

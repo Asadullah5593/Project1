@@ -92,8 +92,8 @@ const Home = () => {
             }
 
             <div className="home-prod-div">
-                <a className="home-prod-btn btn btn-danger" href="/products">
-                    <h3 className="prod-btn-h3">Show All Products!</h3>
+                <a href="/products">
+                    <button className="homebtn">Show All Products!</button>
                 </a>
             </div>
         </div>
