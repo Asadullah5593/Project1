@@ -12,6 +12,7 @@ async function createNewOrder(req, res) {
 
         var unavailableProducts = [];
         var availableProducts = [];
+        var orderTotal = 0;
 
         var user = await User.findById(user_id.toString());
 
@@ -21,6 +22,7 @@ async function createNewOrder(req, res) {
             if (availableProduct && availableProduct.available_quantity > 0) {
                 availableProduct.available_quantity -= product.quantity;
                 await availableProduct.save();
+                orderTotal += availableProduct.price;
                 availableProducts.push({product_name: availableProduct.product_name, ...product});
             } else {
                 unavailableProducts.push(unavailableProducts);
@@ -31,7 +33,8 @@ async function createNewOrder(req, res) {
 
             let order = new Order({
                 user_id: user_id,
-                products: availableProducts
+                products: availableProducts,
+                total: orderTotal
             });
 
             await sendEmail({

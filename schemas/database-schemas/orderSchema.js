@@ -6,7 +6,8 @@ const orderSchema = new mongoose.Schema({
         product_id: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Product'},
         quantity: {type: Number},
         price: {type: Number}
-    }]
+    }],
+    total: {type: Number}
 });
 
 const Order = mongoose.model("Order", orderSchema);
