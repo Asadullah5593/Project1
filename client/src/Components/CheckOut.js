@@ -218,12 +218,13 @@ const CheckOut = () => {
                                     <div className="col-md-12"><input type="text" name="email_address"
                                                                       className="form-control" required/></div>
                                 </div>
+                                <div className="form-group text-center">
+                                    <button className="orderbtn" type="submit">Place Order</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 col-sm-6 col-xs-12">
-                        <button className="orderbtn" type="submit">Place Order</button>
-                    </div>
+
                 </form>
 
             </div>
